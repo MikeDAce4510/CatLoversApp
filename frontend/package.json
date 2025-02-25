@@ -50,5 +50,11 @@
   },
   "notes": {
     "absoluteImports": "Absolute imports are enabled via jsconfig.json with baseUrl set to src."
+  },
+  "engines": {
+    "node": ">=18.x",
+    "go": "1.19"
   }
+}
+
 }

@@ -1,0 +1,54 @@
+{
+  "name": "catloversapp",
+  "version": "1.0.0",
+  "description": "A React-based app for cat lovers to vote on cat images and view user activity.",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "keywords": [
+    "cats",
+    "react",
+    "voting",
+    "nodejs",
+    "postgresql"
+  ],
+  "author": "Your Name",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.3",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "node-fetch": "^3.3.2",
+    "pg": "^8.13.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.14.2",
+    "react-scripts": "^5.0.1",
+    "webpack": "^5.97.1",
+    "yarn": "^1.22.22"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.7",
+    "prettier": "^3.0.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "notes": {
+    "absoluteImports": "Absolute imports are enabled via jsconfig.json with baseUrl set to src."
+  }
+}

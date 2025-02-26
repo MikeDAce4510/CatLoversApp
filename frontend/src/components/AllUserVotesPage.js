@@ -1,7 +1,8 @@
 // AllUserVotesPage.js
 import React, { useState, useEffect } from 'react';
 
-const BACKEND_URL = "http://localhost:5000"; // Ensure this matches your backend URL
+import BACKEND_URL from "../config";
+
 
 function AllUserVotesPage() {
     const [allVotes, setAllVotes] = useState([]);

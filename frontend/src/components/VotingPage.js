@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
-const BACKEND_URL = 'http://localhost:5000';
+import BACKEND_URL from "../config";
+
 
 function VotingPage() {
   const [currentImage, setCurrentImage] = useState(null);

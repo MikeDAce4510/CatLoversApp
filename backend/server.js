@@ -18,17 +18,17 @@ const app = express();
 // ✅ 1. Security Middleware (MUST BE FIRST)
 app.use(helmet());
 app.use(cors({
-  origin: 'http://localhost:3000',
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Authorization', 'Content-Type'],
-  credentials: true,
+  origin: "https://catloversapp.netlify.app", 
+  methods: "GET,POST,PUT,DELETE,OPTIONS",
+  allowedHeaders: "Authorization,Content-Type",
+  credentials: true
 }));
 app.use(express.json());
 
 // ✅ 2. Handle Preflight Requests
 app.options('*', cors());
 app.options('/api/users/verify-token', (req, res) => {
-  res.set('Access-Control-Allow-Origin', 'http://localhost:3000');
+  res.set('Access-Control-Allow-Origin', 'https://catloversapp.netlify.app');
   res.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.set('Access-Control-Allow-Headers', 'Authorization, Content-Type');
   res.set('Access-Control-Allow-Credentials', 'true');
@@ -102,7 +102,7 @@ app.get('/api/votes/all-votes', async (req, res) => {
 });
 
 // ✅ 7. Graceful Shutdown Handling
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 const server = app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);
 });

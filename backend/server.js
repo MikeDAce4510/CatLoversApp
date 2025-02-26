@@ -102,10 +102,13 @@ app.get('/api/votes/all-votes', async (req, res) => {
 });
 
 // ✅ 7. Graceful Shutdown Handling
+const HOST = '0.0.0.0';
 const PORT = process.env.PORT || 5000;
-const server = app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
+
+const server = app.listen(PORT, HOST, () => {
+  console.log(`🚀 Server running on http://${HOST}:${PORT}`);
 });
+
 process.on('SIGINT', async () => {
   console.log('Shutting down gracefully...');
   await pool.end();

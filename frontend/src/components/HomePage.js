@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 
-const BACKEND_URL = 'http://localhost:5000';
+import BACKEND_URL from "../config";
 const API_URL = 'https://api.thecatapi.com/v1/images/search';
 const API_KEY = process.env.REACT_APP_CAT_API_KEY; 
 

@@ -52,20 +52,25 @@ export async function loginUser(req, res) {
 export async function registerUser(req, res) {
   const { username, password } = req.body;
 
+  // Password validation: At least 6 characters, one number, one uppercase letter
+  const passwordRegex = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{6,}$/;
+  if (!passwordRegex.test(password)) {
+    return res.status(400).json({ error: "Password must be at least 6 characters, include one number and one uppercase letter." });
+  }
+
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
-
     const result = await pool.query(
-      'INSERT INTO users (username, password) VALUES ($1, $2) RETURNING id',
+      "INSERT INTO users (username, password) VALUES ($1, $2) RETURNING id",
       [username, hashedPassword]
     );
-
-    res.status(201).json({ message: 'User registered successfully', userId: result.rows[0].id });
+    res.status(201).json({ userId: result.rows[0].id });
   } catch (error) {
-    console.error('Error registering user:', error);
-    res.status(500).json({ error: 'Internal server error' });
+    console.error("Error registering user:", error);
+    res.status(500).json({ error: "Failed to register user" });
   }
 }
+
 
 // Verify Token
 export async function verifyToken(req, res) {
